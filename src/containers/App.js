@@ -61,12 +61,18 @@ export default class App extends Component {
         />
         <div className="List ui grid">
           <div className="ui row">
-            <div className="eleven wide column">
+            <div className={this.getResponsiveClasses("eleven wide column")}>
               {this.state.selectedVideo ? (
                 <VideoDetail video={this.state.selectedVideo} />
               ) : null}
             </div>
-            <div className={this.state.selectedVideo ? "five wide column" : ""}>
+            <div
+              className={
+                this.state.selectedVideo
+                  ? this.getResponsiveClasses("five wide column")
+                  : ""
+              }
+            >
               <VideoList
                 videos={this.state.videos}
                 onVideoSelect={this.onVideoSelectHandler}
